@@ -56,7 +56,7 @@ public class SimpleTestCase {
 		//Logout
 		//dr.findElementByXPath("//a[@href='/account/logout/']").click();
 		
-		dr.findElementByLinkText("Log Out");
+		dr.findElementByLinkText("Log Out").click();
 		
 		//Close browser
 		dr.close();
