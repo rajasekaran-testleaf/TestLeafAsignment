@@ -79,7 +79,7 @@ public class RedBus {
 			}
 		
 		//Sort based on the Seats Available		
-		dr.findElement(By.xpath("(//div[contains(@class,'w-15 fl')]//a)[2]")).click();
+		dr.findElementByXPath("//a[text()='Seats Available']").click();
 		
 		//Close the browser
 		dr.close();
