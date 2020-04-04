@@ -26,12 +26,10 @@ public class RedBus {
 		//Hitting the ACME site URL
 		dr.get("https://www.redbus.in/");
 		
-		Thread.sleep(3000);
-		
 		//Enter the From Location
 		dr.findElementById("src").sendKeys("Chennai");
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		//Enter the To Location
 		dr.findElementById("dest").sendKeys("Bangalore");
