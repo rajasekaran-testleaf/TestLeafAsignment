@@ -5,24 +5,32 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ClassAssignment {
 
 	public static void main(String[] args) throws InterruptedException {
 
+		
+		// add system property -> webdriver.chrome.driver
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+				
+				
 			//Open the Chrome Driver
 			ChromeDriver dr = new ChromeDriver();
 			
+			//Implicit wait for the Element wait
+			dr.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+			
 			//Maximize the browser
 			dr.manage().window().maximize();
-			
-			//Implicit wait for the Element wait
-			dr.manage().timeouts().implicitlyWait(600, TimeUnit.SECONDS);
 			
 			//Step 1 Launch the ServiceNow application URL: https://dev92474.service-now.com/	
 			//Hitting the LeafTaps site URL
@@ -31,6 +39,11 @@ public class ClassAssignment {
 			//Switch to the Frame
 			dr.switchTo().frame(0);
 			
+			Thread.sleep(3000);
+			//WebDriver wait
+			//WebDriverWait wat = new WebDriverWait(dr, 50);
+			//wat.until(ExpectedConditions.textToBePresentInElement((WebElement) By.id("user_name"), "User name"));
+			
 			//Step  2 Login with valid credentials username as admin and password as India@123	
 			/* Enter the User Name, Password
 			 * CLick Login Button		
@@ -38,6 +51,8 @@ public class ClassAssignment {
 			dr.findElementByXPath("//label[text()='User name']/following::input[@id='user_name']").sendKeys("admin");
 			dr.findElementByXPath("//label[text()='Password']/following::input[@id='user_password']").sendKeys("India@123");
 			dr.findElementByXPath("//button[text()='Login']").click();
+			
+			Thread.sleep(3000);
 			
 			//Step 3 Enter Incident in filter navigator and press enter	
 			//Filter the Incident category
